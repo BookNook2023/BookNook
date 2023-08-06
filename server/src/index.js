@@ -12,17 +12,16 @@ console.log("DB_NAME:", process.env.DB_NAME);
 console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
 console.log("DB_PORT:", process.env.DB_PORT);
 
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-});
+// const pool = new Pool({
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASSWORD,
+//   port: process.env.DB_PORT,
+// });
 
-/**Use this if .env doesn't work
- * Don't forget to change to your own info
-
+//Use this if .env doesn't work
+// Don't forget to change to your own info
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
@@ -30,7 +29,6 @@ const pool = new Pool({
   password: "(ADD YOUR OWN PASSWORD)",
   port: 5432,
 });
-**/
 
 app.get('/users', async (req, res) => {
   try {
