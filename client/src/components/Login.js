@@ -11,22 +11,19 @@ const Login = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      console.log(username);
-      const response = await fetch(`/api/login?username=${username}`);
-      console.log(response);
-      //const data = await response.json();
-      //console.log(data);
+      const response = await fetch(`http://localhost:3001/api/login?username=${username}`);
+      const data = await response.json();
+      console.log(data);
       if (response.ok) {
-        setUserId(response.id);
-        console.log(response.id);
+        setUserId(data.id);
       } else {
         setUserId(null);
-        console.log(response.id);
       }
     } catch {
       console.error("Error: username not found");
     }
   }
+  
 
   const handleUsernameChange = (evt) => {
     setUsername(evt.target.value);
