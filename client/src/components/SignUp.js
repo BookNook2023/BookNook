@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './SignUp.css'; 
+//import './SignUp.css'; 
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -22,7 +22,6 @@ const SignUp = () => {
 
       if (response.status === 201) {
         const data = await response.json();
-        setUserId(data.id);
       } else if (response.status === 400) {
         console.log('User already exists');
       } else {

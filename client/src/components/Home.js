@@ -14,7 +14,9 @@ const Home = () => {
         <Link to="/login">
           <button>Login</button>
         </Link>
-        <a href="url">Sign Up</a>
+        <Link to="/signup">
+          <button>Sign-Up</button>
+        </Link>
       </header>
     </div>
   );
