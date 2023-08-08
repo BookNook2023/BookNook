@@ -1,19 +1,22 @@
-import logo from './logo.svg';
-import book from './book.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './components/App.css';
+import Home from './components/Home';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>BOOK<span>NOOK</span></p>
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={book} className="App-book" alt="book" />
-        <button>Login</button>
-        <a href="url">Sign Up</a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<Home />} /> {/* Default route */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
