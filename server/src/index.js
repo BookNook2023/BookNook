@@ -35,10 +35,13 @@ app.get('/users', async (req, res) => {
 });
 
 app.get('/api/login', async (req, res) => {
+  console.log(req.query);
   try {
     const {username} = req.query;
+    console.log({username});
     const queryText = 'SELECT id FROM public.users WHERE username=$1';
     const result = await pool.query(queryText, [username]);
+    console.log(result);
     if (result.rows.length > 0) {
       res.json({ id: result.rows[0].id });
     } else {
