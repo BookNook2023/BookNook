@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 require("dotenv").config();
@@ -23,6 +24,7 @@ const pool = new Pool({
 
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/users', async (req, res) => {
   try {
